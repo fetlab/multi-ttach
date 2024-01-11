@@ -48,7 +48,7 @@ def upload_file():
             type = 'grid'
 
         layers_list = layers.split(",")
-        
+
         layers_input = []
         for i in range(len(layers_list)):
             layers_input.append(int(layers_list[i].strip()))
@@ -64,7 +64,7 @@ def upload_file():
 
         output_file = f.filename.split(".gcode")[0]+"_"+type+".gcode"
         time.sleep(5)
-        return send_from_directory(directory=UPLOAD_FOLDER, filename=output_file, as_attachment=True)
+        return send_from_directory(directory=UPLOAD_FOLDER, path=output_file, as_attachment=True)
 
 
 @app.route('/uploader_2', methods=['GET', 'POST'])
@@ -84,7 +84,7 @@ def upload_file_2():
 
         output_file = f.filename.split(".gcode")[0] + "_" + type + ".gcode"
         time.sleep(5)
-        return send_from_directory(directory="user_files", filename=output_file, as_attachment=True)
+        return send_from_directory(directory="user_files", path=output_file, as_attachment=True)
 
 
 @app.route('/uploader_3', methods=['GET', 'POST'])
@@ -97,7 +97,7 @@ def upload_file_3():
 
         output_file = f.filename.split(".gcode")[0] + "_stitched" + ".gcode"
         time.sleep(5)
-        return send_from_directory(directory="user_files", filename=output_file, as_attachment=True)
+        return send_from_directory(directory="user_files", path=output_file, as_attachment=True)
 
 
 if __name__ == '__main__':
