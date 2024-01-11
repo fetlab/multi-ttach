@@ -95,7 +95,10 @@ def adhesion_structure_horizontal(file_name):
                        layer_count - 1, layer_count - 2, layer_count - 3, layer_count - 4, layer_count - 5]
 
     for i in excluded_layers:
-        multi_layers_number.remove(i)
+        try:
+            multi_layers_number.remove(i)
+        except:
+            print(f'Error removing {i} from {multi_layers_number}')
 
     # get inner walls of multimaterial layers
     multi_inner_walls = []
